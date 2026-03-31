@@ -1,10 +1,10 @@
 import java.util.*;
 import java.io.*;
 
-public class DataManager {
+public class FighterPrinter {
     public static void main(String[] args) {
-        ArrayList<Athlete> roster = new ArrayList<>();
-        String fileName = "olympics_data.csv";
+        ArrayList<Fighter> fighters = new ArrayList<>();
+        String fileName = "ufc-fighters-statistics.csv";
 
         try {
             Scanner fileReader = new Scanner(new File(fileName));
@@ -24,18 +24,18 @@ public class DataManager {
                 // 4. Parse data and create Athlete object
                 // TODO: roster.add(new Athlete(...));
                 String name = data[0];
-                String country = data[1];
-                int numGold = Integer.parseInt(data[2]);
+                String nickname = data[1];
+                int wins = Integer.parseInt(data[2]);
                 int numSilver = Integer.parseInt(data[3]);
                 int numBronze = Integer.parseInt(data[4]);
                 int numTotal = Integer.parseInt(data[5]);
                 int weightedScore = 3*numGold+2*numSilver+numBronze;
 
-                roster.add(new Athlete(name,country,numGold,numSilver,numBronze,numTotal,weightedScore));
+                fighters.add(new Fighter(name,));
             }
             
             fileReader.close();
-            System.out.println("Successfully loaded " + roster.size() + " records.");
+            System.out.println("Successfully loaded " + fighters.size() + " stances.");
 
         } catch (FileNotFoundException e) {
             System.out.println("Error: The file '" + fileName + "' was not found.");
@@ -44,9 +44,9 @@ public class DataManager {
         }
 
         // 5. TODO: Implement your Level Up analysis here!
-        for(Athlete a:roster)
+        for(Fighter f:fighters)
             {
-                System.out.println(a.getName()+ " weighted score: "+a.getWeightedScore());
+                System.out.println(f.getName()+ " Stance: "+f.getStance());
             }
     }
 }
