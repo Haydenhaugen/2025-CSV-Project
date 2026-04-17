@@ -22,7 +22,7 @@ public class DataManager {
                 String[] data = line.split(",");
                 
                 // 4. Parse data and create Athlete object
-                // TODO: roster.add(new Athlete(...));
+                
                 String name = data[0];
                 String country = data[1];
                 int numGold = Integer.parseInt(data[2]);
@@ -43,7 +43,7 @@ public class DataManager {
             System.out.println("Error: Failed to parse a numeric value in the CSV.");
         }
 
-        // 5. TODO: Implement your Level Up analysis here!
+        
         for(Athlete a:roster)
             {
                 System.out.println(a.getName()+ " weighted score: "+a.getWeightedScore());
